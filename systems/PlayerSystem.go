@@ -23,7 +23,10 @@ type PlayerSystem struct {
 
 func (ps *PlayerSystem) Remove(ecs.BasicEntity) {}
 
-func (ps *PlayerSystem) Update(dt float32) {}
+func (ps *PlayerSystem) Update(dt float32) {
+	point := engo.Point{ps.mouseTracker.MouseX, ps.mouseTracker.MouseY}
+	ps.SpaceComponent.Position = point
+}
 
 func (ps *PlayerSystem) New(w *ecs.World) {
 	ps.world = w
